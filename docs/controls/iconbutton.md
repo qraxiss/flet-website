@@ -13,6 +13,8 @@ Icon buttons are commonly used in the toolbars, but they can be used in many oth
 
 ## Examples
 
+[Live example](https://flet-controls-gallery.fly.dev/buttons/iconbutton)
+
 ### Icon buttons
 
 <Tabs groupId="language">
@@ -98,7 +100,7 @@ Icon shown in the button.
 
 ### `icon_color`
 
-Icon color.
+Icon [color](/docs/guides/python/colors).
 
 ### `icon_size`
 
@@ -114,7 +116,7 @@ Icon shown in the button in selected state.
 
 ### `selected_icon_color`
 
-Icon color for the selected state.
+Icon [color](/docs/guides/python/colors) for the selected state.
 
 En example of icon toggle button:
 
@@ -150,8 +152,33 @@ See [ElevatedButton.style](/docs/controls/elevatedbutton#style) for more informa
 
 The text displayed when hovering the mouse over the button.
 
+### `url`
+
+The URL to open when the button is clicked. If registered, `on_click` event is fired after that.
+
+### `url_target`
+
+Where to open URL in the web mode:
+
+* `_blank` (default) - new tab/window.
+* `_self` - the current tab/window.
+
+## Methods
+
+### `focus()`
+
+Moves focus to a button.
+
 ## Events
+
+### `on_blur`
+
+Fires when the control has lost focus.
 
 ### `on_click`
 
 Fires when a user clicks the button.
+
+### `on_focus`
+
+Fires when the control has received focus.

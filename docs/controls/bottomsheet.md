@@ -10,6 +10,8 @@ A modal bottom sheet is an alternative to a menu or a dialog and prevents the us
 
 ## Examples
 
+[Live example](https://flet-controls-gallery.fly.dev/dialogs/bottomsheet)
+
 ### Simple BottomSheet
 
 <img src="/img/docs/controls/bottom-sheet/bottom-sheet-sample.gif" className="screenshot-30"/>
@@ -55,9 +57,25 @@ ft.app(target=main)
 
 The content of the bottom sheet.
 
+### `dismissible`
+
+Specifies whether the bottom sheet will be dismissed when user taps on the scrim.
+
+### `enable_drag`
+
+Specifies whether the bottom sheet can be dragged up and down and dismissed by swiping downwards.
+
 ### `open`
 
 Set to `True` to display a bottom sheet.
+
+### `show_drag_handle`
+
+Whether to display drag handle at the top of sheet or not.
+
+### `use_safe_area`
+
+Specifies whether the sheet will avoid system intrusions on the top, left, and right. Defaults to `False`.
 
 ## Events
 

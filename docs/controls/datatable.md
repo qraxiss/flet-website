@@ -8,6 +8,8 @@ A Material Design data table.
 
 ## Examples
 
+[Live example](https://flet-controls-gallery.fly.dev/layout/datatable)
+
 ### A simple DataTable
 
 <img src="/img/docs/controls/datatable/datatable-minimal.png" className="screenshot-50"/>
@@ -107,7 +109,7 @@ ft.app(target=main)
 
 ### `bgcolor`
 
-The background color for the table.
+The background [color](/docs/guides/python/colors) for the table.
 
 ### `border`
 
@@ -135,19 +137,23 @@ A list of [`DataColumn`](#datacolumn) controls describing table columns.
 
 ### `data_row_color`
 
-The background color for the data rows.
+The background [color](/docs/guides/python/colors) for the data rows.
 
 The effective background color can be made to depend on the `MaterialState` state, i.e. if the row is selected, pressed, hovered, focused, disabled or enabled. The color is painted as an overlay to the row. To make sure that the row's InkWell is visible (when pressed, hovered and focused), it is recommended to use a translucent background color.
 
 See [`Checkbox.fill_color`](/docs/controls/checkbox#fill_color) property for more information and examples.
 
-### `data_row_height`
+### `data_row_min_height`
 
-The height of each row (excluding the row that contains column headings).
+The minimum height of each row (excluding the row that contains column headings).
+
+### `data_row_max_height`
+
+The maximum height of each row (excluding the row that contains column headings).
 
 ### `data_text_style`
 
-The text style for data rows. An instance of `ft.TextStyle` class.
+The text style for data rows. An instance of [`ft.TextStyle`](text#textstyle-properties) class.
 
 ### `divider_thickness`
 
@@ -163,7 +169,7 @@ See [`Container.gradient`](/docs/controls/container#gradient) property for more 
 
 ### `heading_row_color`
 
-The background color for the heading row.
+The background [color](/docs/guides/python/colors) for the heading row.
 
 The effective background color can be made to depend on the `MaterialState` state, i.e. if the row is pressed, hovered, focused when sorted. The color is painted as an overlay to the row. To make sure that the row's InkWell is visible (when pressed, hovered and focused), it is recommended to use a translucent color.
 
@@ -175,11 +181,11 @@ The height of the heading row.
 
 ### `heading_text_style`
 
-The text style for the heading row. An instance of `ft.TextStyle` class.
+The text style for the heading row. An instance of [`ft.TextStyle`](text#textstyle-properties) class.
 
 ### `horizontal_lines`
 
-Set the color and width of horizontal lines between rows. An instance of `ft.BorderSide` class.
+Set the [color](/docs/guides/python/colors) and width of horizontal lines between rows. An instance of `ft.BorderSide` class.
 
 ### `horizontal_margin`
 
@@ -225,7 +231,7 @@ When this is `None`, it implies that the table's sort order does not correspond 
 
 ### `vertical_lines`
 
-Set the color and width of vertical lines between columns. An instance of `ft.BorderSide` class.
+Set the [color](/docs/guides/python/colors) and width of vertical lines between columns. An instance of `ft.BorderSide` class.
 
 ## `DataTable` events
 
@@ -290,7 +296,7 @@ There must be exactly as many cells as there are columns in the table.
 
 ### `color`
 
-The color for the row.
+The [color](/docs/guides/python/colors) for the row.
 
 By default, the color is transparent unless selected. Selected rows has a grey translucent color.
 

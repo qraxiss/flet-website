@@ -11,6 +11,8 @@ import TabItem from '@theme/TabItem';
 
 ## Examples
 
+[Live example](https://flet-controls-gallery.fly.dev/displays/markdown)
+
 ### Markdown with GitHubWeb extensions and clickable links
 
 <Tabs groupId="language">
@@ -120,9 +122,20 @@ ft.app(target=main)
 
 ## Properties
 
+### `auto_follow_links`
+
+Automatically open URLs in the document. Default is `False`. If registered, `on_tap_link` event is fired after that.
+
+### `auto_follow_links_target`
+
+Where to open URL in the web mode:
+
+* `_blank` (default) - new tab/window.
+* `_self` - the current tab/window.
+
 ### `code_style`
 
-Code block text style. An instance of `TextStyle` class.
+Code block text style. The value is an instance of [`ft.TextStyle`](text#textstyle-properties) class.
 
 An example of configuring monospace font for Markdown code blocks:
 

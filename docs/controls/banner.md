@@ -13,6 +13,8 @@ import TabItem from '@theme/TabItem';
 
 ## Examples
 
+[Live example](https://flet-controls-gallery.fly.dev/dialogs/banner)
+
 ### Banner with leading icon and actions
 
 <Tabs groupId="language">
@@ -62,7 +64,7 @@ Typically this is a list of [`TextButton`](textbutton) controls.
 
 ### `bgcolor`
 
-The color of the surface of this Banner.
+The [color](/docs/guides/python/colors) of the surface of this Banner.
 
 ### `content`
 

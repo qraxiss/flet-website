@@ -12,6 +12,8 @@ Floating action button is usually set to `page.floating_action_button`, but can 
 
 ## Examples
 
+[Live example](https://flet-controls-gallery.fly.dev/buttons/floatingactionbutton)
+
 ### Basic FAB
 
 <Tabs groupId="language">
@@ -68,7 +70,7 @@ True if the control will be selected as the initial focus. If there is more than
 
 ### `bgcolor`
 
-Button background color.
+Button background [color](/docs/guides/python/colors).
 
 ### `content`
 
@@ -95,7 +97,7 @@ The value is an instance of one of the following implementations:
   * `CircleBorder`
   * `BeveledRectangleBorder`
     * `radius` - border radius, an instance of `BorderRadius` class or a number.
-  * `CountinuosRectangleBorder`
+  * `ContinuousRectangleBorder`
     * `radius` - border radius, an instance of `BorderRadius` class or a number.
 
 An example of using `shape` property:
@@ -129,6 +131,17 @@ The text displayed on a button.
 ### `tooltip`
 
 The text displayed when hovering the mouse over the button.
+
+### `url`
+
+The URL to open when the button is clicked. If registered, `on_click` event is fired after that.
+
+### `url_target`
+
+Where to open URL in the web mode:
+
+* `_blank` (default) - new tab/window.
+* `_self` - the current tab/window.
 
 ## Events
 

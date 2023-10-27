@@ -11,6 +11,8 @@ import TabItem from '@theme/TabItem';
 
 ## Examples
 
+[Live example](https://flet-controls-gallery.fly.dev/navigation/navigationrail)
+
 <Tabs groupId="language">
   <TabItem value="python" label="Python" default>
 
@@ -67,7 +69,7 @@ ft.app(target=main)
 
 ### `bgcolor`
 
-Sets the color of the Container that holds all of the NavigationRail's contents.
+Sets the [color](/docs/guides/python/colors) of the Container that holds all of the NavigationRail's contents.
 
 ### `destinations`
 

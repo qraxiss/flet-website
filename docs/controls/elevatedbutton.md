@@ -11,6 +11,8 @@ Elevated buttons are essentially filled tonal buttons with a shadow. To prevent 
 
 ## Examples
 
+[Live example](https://flet-controls-gallery.fly.dev/buttons/elevatedbutton)
+
 ### Basic elevated buttons
 
 <Tabs groupId="language">
@@ -146,11 +148,11 @@ True if the control will be selected as the initial focus. If there is more than
 
 ### `bgcolor`
 
-Button's background color.
+Button's background [color](/docs/guides/python/colors).
 
 ### `color`
 
-Button's text color.
+Button's text [color](/docs/guides/python/colors).
 
 ### `content`
 
@@ -166,7 +168,7 @@ Icon shown in the button.
 
 ### `icon_color`
 
-Icon color.
+Icon [color](/docs/guides/python/colors).
 
 ### `style`
 
@@ -266,7 +268,7 @@ ft.app(target=main)
   * `CircleBorder`
   * `BeveledRectangleBorder`
     * `radius` - border radius, an instance of `BorderRadius` class or a number.
-  * `CountinuosRectangleBorder`
+  * `ContinuousRectangleBorder`
     * `radius` - border radius, an instance of `BorderRadius` class or a number.
 
 This is an example demonstrating various button shapes:
@@ -295,7 +297,7 @@ def main(page: ft.Page):
         ft.FilledButton(
             "Continuous rectangle",
             style=ft.ButtonStyle(
-                shape=ft.CountinuosRectangleBorder(radius=30),
+                shape=ft.ContinuousRectangleBorder(radius=30),
             ),
         ),
         ft.FilledButton(
@@ -321,11 +323,36 @@ The text displayed on a button.
 
 The text displayed when hovering the mouse over the button.
 
+### `url`
+
+The URL to open when the button is clicked. If registered, `on_click` event is fired after that.
+
+### `url_target`
+
+Where to open URL in the web mode:
+
+* `_blank` (default) - new tab/window.
+* `_self` - the current tab/window.
+
+## Methods
+
+### `focus()`
+
+Moves focus to a button.
+
 ## Events
+
+### `on_blur`
+
+Fires when the control has lost focus.
 
 ### `on_click`
 
 Fires when a user clicks the button.
+
+### `on_focus`
+
+Fires when the control has received focus.
 
 ### `on_hover`
 

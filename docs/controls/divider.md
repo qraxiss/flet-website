@@ -13,6 +13,8 @@ import TabItem from '@theme/TabItem';
 
 ## Examples
 
+[Live example](https://flet-controls-gallery.fly.dev/layout/divider)
+
 <Tabs groupId="language">
   <TabItem value="python" label="Python" default>
 
@@ -60,7 +62,7 @@ ft.app(target=main)
 
 ### `color`
 
-The color to use when painting the line.
+The [color](/docs/guides/python/colors) to use when painting the line.
 
 ### `height`
 

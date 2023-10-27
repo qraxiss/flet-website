@@ -3,91 +3,70 @@ title: Roadmap
 slug: roadmap
 ---
 
-## January-March 2023
+## September 2023 - January 2024
 
-### Desktop
+The goal: stabilization and Flet 1.0 launch.
 
-* :white_check_mark: [New architecture for Flet desktop apps](/blog/flet-mobile-update#flet-new-desktop-architecture).
+* Unified packaging for all platforms: Windows, Linux, macOS, web, iOS and Android - based on `serious_python` and Flutter SDK.
+* Speed optimizations (pages with a lot of controls, large updates).
+* Adaptive UI - adaptive controls that change their look depending on the platform the app runs.
+* Responsive UI - layouts that adapt to a device screen size.
+* Localization.
+* Extensibility:
+  * How to integrate 3rd-party Flutter packages to your apps.
+  * How to use 3rd-party Python packages in iOS and Android apps.
+* Documentation improvements.
+* Bugfixing.
+* Test suite.
+* Website updates: clearer message, Flet features.
+* Flet Packaging and Deployment Service aka Flet CI.
 
-### Web
+New controls:
+* [Video](https://github.com/flet-dev/flet/issues/257)
+* [WebView](https://github.com/flet-dev/flet/issues/432)
+* [NavigationDrawer](https://github.com/flet-dev/flet/issues/1089)
+* [Autocomplete](https://github.com/flet-dev/flet/issues/791)
+* [AutofillGroup](https://github.com/flet-dev/flet/issues/848)
+* [ExpansionTile](https://github.com/flet-dev/flet/issues/1719) and [ExpansionPanel](https://github.com/flet-dev/flet/issues/1718)
+* [RangeSlider](https://github.com/flet-dev/flet/issues/1712)
+* [Context menu](https://github.com/flet-dev/flet/issues/1804)
+* [PlatformMenuBar](https://github.com/flet-dev/flet/issues/285) (and [#116](https://github.com/flet-dev/flet/issues/116))
+* [MenuBar](https://github.com/flet-dev/flet/issues/1087)
+* [SegmentedButton](https://github.com/flet-dev/flet/issues/1639)
+* [Chips](https://github.com/flet-dev/flet/issues/1636)
+* [SearchAnchor](https://github.com/flet-dev/flet/issues/1637)
+* [SearchBar](https://github.com/flet-dev/flet/issues/1808)
+* [DatePicker](https://github.com/flet-dev/flet/issues/86)
+* [TimePicker](https://github.com/flet-dev/flet/issues/1809)
+* [SelectionArea](https://github.com/flet-dev/flet/issues/1554)
+* [Camera](https://github.com/flet-dev/flet/issues/1281)
+* [AudioRecorder](https://github.com/flet-dev/flet/issues/419)
+* [Badge](https://github.com/flet-dev/flet/issues/1264)
+* [Rive](https://github.com/flet-dev/flet/issues/89)
+* [Lottie](https://github.com/flet-dev/flet/issues/88)
+* [Location](https://github.com/flet-dev/flet/issues/66)
+* [Map](https://github.com/flet-dev/flet/issues/1193)
+* [Google Mobile Ads](https://github.com/flet-dev/flet/issues/286)
+* [Dismissable](https://github.com/flet-dev/flet/issues/482)
+* [InAppPurchase](https://github.com/flet-dev/flet/issues/853)
+* [TreeView](https://github.com/flet-dev/flet/issues/961)
+* [DropdownMenu](https://github.com/flet-dev/flet/issues/1088)
+* [BottomAppBar](https://github.com/flet-dev/flet/issues/1643)
+* [SliverAppBar](https://github.com/flet-dev/flet/issues/1843)
 
-* :white_check_mark: Standalone web apps with [Pyodide](https://pyodide.org/en/stable/) and Flet.
-* Hosting Flet app in FastAPI server.
+Adaptive controls:
+* AlertDialog
+* Button
+* ContextMenu
+* NavigationBar
+* DatePicker
+* TimePicker
+* ListTile
+* Slider
+* Switch
+* TabBar
+* Checkbox
 
-### Mobile
+## May 2024
 
-* [Standalone mobile apps for iOS and Android](/blog/flet-mobile-update#flet-mobile-architecture).
-
-### Developer experience
-
-* Sample apps:
-    * :white_check_mark: Chat
-    * :white_check_mark: Solitaire
-* Gallery
-
-## April 2023
-
-* [PyCon US 2023](https://us.pycon.org/2023/)
-
-## Year 2023
-
-### Mobile
-
-* Flet Studio (in App Store and Google Play.
-* Experimenting with isomorphic approach: the same Python code runs on a client and a server.
-
-### Controls
-
-* Community requested controls:
-  * NavigationDrawer
-  * Video
-  * WebView
-  * Autocomplete
-* Adaptive controls (controls that change their look depending on platform).
-
-### Language support
-
-* Go
-
-### Core functionality
-
-* Better tests.
-* Built-in database with a simple ORM:
-  * Database-aware `DataTable`
-* Reactive approach for Flet apps.
-
-## September-December 2022
-
-### Mobile
-
-* :white_check_mark: Standalone mobile package for Flet app
-
-### Controls
-
-* :white_check_mark: DataTable
-* :white_check_mark: Charts
-* :white_check_mark: [Animations](/docs/guides/python/animations)
-
-## July-August 2022
-
-### Security
-
-* :white_check_mark: Authentication (OAuth): GitHub, Google, Azure (Microsoft Account).
-
-### Mobile
-
-* :white_check_mark: Flet widget for Flutter
-
-### Desktop
-
-* :white_check_mark: Windows and macOS "host" client with hot reload, so the app could be run as `flet main.py`
-
-### Controls
-
-* :white_check_mark: [Routing and navigation](/docs/guides/python/navigation-and-routing)
-* :white_check_mark: NavigationBar
-* :white_check_mark: Responsive layout
-
-### Core functionality
-
-* :white_check_mark: [PubSub](/docs/guides/python/pub-sub)
+* [PyCon US 2024](https://pycon.blogspot.com/2021/05/pycon-us-2024-and-2025-announcement.html)

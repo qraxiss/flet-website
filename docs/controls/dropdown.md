@@ -13,6 +13,8 @@ import TabItem from '@theme/TabItem';
 
 ## Examples
 
+[Live example](https://flet-controls-gallery.fly.dev/input/dropdown)
+
 ### Basic dropdown
 
 <Tabs groupId="language">
@@ -161,7 +163,7 @@ True if the control will be selected as the initial focus. If there is more than
 
 ### `bgcolor`
 
-Dropdown background color.
+Dropdown background [color](/docs/guides/python/colors).
 
 ### `border`
 
@@ -169,7 +171,7 @@ Border around input - `InputBorder` enum with one of the values: `OUTLINE` (defa
 
 ### `border_color`
 
-Border color. Could be `transparent` to hide the border.
+Border [color](/docs/guides/python/colors). Could be `transparent` to hide the border.
 
 ### `border_radius`
 
@@ -181,7 +183,7 @@ The width of the border in virtual pixels. Default is 1. Set to 0 to completely 
 
 ### `color`
 
-Text color.
+Text [color](/docs/guides/python/colors).
 
 ### `content_padding`
 
@@ -217,11 +219,11 @@ If `True` the decoration's container is filled with theme fillColor.
 
 ### `focused_bgcolor`
 
-Background color of dropdown in focused state.
+Background [color](/docs/guides/python/colors) of dropdown in focused state.
 
 ### `focused_border_color`
 
-Border color in focused state.
+Border [color](/docs/guides/python/colors) in focused state.
 
 ### `focused_border_width`
 
@@ -229,7 +231,7 @@ Border width in focused state.
 
 ### `focused_color`
 
-Text color when Dropdown is focused.
+Text [color](/docs/guides/python/colors) when Dropdown is focused.
 
 ### `helper_style`
 

@@ -13,6 +13,8 @@ A filled tonal button is an alternative middle ground between [FilledButton](fil
 
 ## Examples
 
+[Live example](https://flet-controls-gallery.fly.dev/buttons/filledtonalbutton)
+
 ### Filled tonal button
 
 <Tabs groupId="language">
@@ -52,7 +54,7 @@ Icon shown in the button.
 
 ### `icon_color`
 
-Icon color.
+Icon [color](/docs/guides/python/colors).
 
 ### `style`
 
@@ -65,6 +67,17 @@ The text displayed on a button.
 ### `tooltip`
 
 The text displayed when hovering the mouse over the button.
+
+### `url`
+
+The URL to open when the button is clicked. If registered, `on_click` event is fired after that.
+
+### `url_target`
+
+Where to open URL in the web mode:
+
+* `_blank` (default) - new tab/window.
+* `_self` - the current tab/window.
 
 ## Events
 

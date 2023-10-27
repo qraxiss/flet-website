@@ -9,6 +9,7 @@ module.exports = {
         //'guides/python/displaying-data',
         "guides/python/getting-user-input",
         "guides/python/keyboard-shortcuts",
+        "guides/python/colors",
         "guides/python/large-lists",
         "guides/python/drag-and-drop",
         "guides/python/navigation-and-routing",
@@ -23,7 +24,9 @@ module.exports = {
         "guides/python/control-refs",
         "guides/python/accessibility",
         "guides/python/async-apps",
-        "guides/python/mobile-support",
+        //"guides/python/mobile-support",
+        "guides/python/testing-on-ios",
+        "guides/python/testing-on-android",
         "guides/python/hot-reload",
         "guides/python/packaging-desktop-app",
         "guides/python/publishing-static-website",
@@ -36,6 +39,7 @@ module.exports = {
           },
           items: [
             "guides/python/deploying-web-app/customizing-web-app",
+            "guides/python/deploying-web-app/running-flet-with-fastapi",
             "guides/python/deploying-web-app/progressive-web-apps",
             {
               type: "category",
@@ -52,6 +56,7 @@ module.exports = {
             },
           ],
         },
+        "guides/python/logging",
       ],
     },
     {
@@ -102,6 +107,7 @@ module.exports = {
             "controls/card",
             "controls/divider",
             "controls/verticaldivider",
+            "controls/safearea",
           ],
         },
         {
@@ -132,6 +138,7 @@ module.exports = {
             "controls/circleavatar",
             "controls/progressbar",
             "controls/progressring",
+            "controls/canvas",
           ],
         },
         {
@@ -189,7 +196,12 @@ module.exports = {
             type: "generated-index",
             slug: "controls/charts",
           },
-          items: ["controls/matplotlibchart", "controls/plotlychart"],
+          items: [
+            "controls/linechart",
+            "controls/barchart",
+            "controls/piechart",
+            "controls/matplotlibchart", "controls/plotlychart"
+          ],
         },
         {
           type: "category",
@@ -225,5 +237,19 @@ module.exports = {
         },
       ],
     },
+    {
+      type: "category",
+      label: "CLI",
+      link: {
+        type: "doc",
+        id: "cli/index",
+      },
+      items: [
+        "cli/create",
+        "cli/run",
+        "cli/pack",
+        "cli/publish",
+      ],
+    }
   ],
 };

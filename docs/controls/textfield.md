@@ -13,6 +13,8 @@ import TabItem from '@theme/TabItem';
 
 ## Examples
 
+[Live example](https://flet-controls-gallery.fly.dev/input/textfield)
+
 ### Basic TextFields
 
 <Tabs groupId="language">
@@ -192,13 +194,17 @@ ft.app(target=main)
 
 ## Properties
 
+### `autocorrect`
+
+Whether to enable autocorrection. Default is `True`.
+
 ### `autofocus`
 
 True if the control will be selected as the initial focus. If there is more than one control on a page with autofocus set, then the first one added to the page will get focus.
 
 ### `bgcolor`
 
-TextField background color.
+TextField background [color](/docs/guides/python/colors).
 
 ### `border`
 
@@ -206,7 +212,7 @@ Border around input - `InputBorder` enum with one of the values: `OUTLINE` (defa
 
 ### `border_color`
 
-Border color. Could be `transparent` to hide the border.
+Border [color](/docs/guides/python/colors). Could be `transparent` to hide the border.
 
 ### `border_radius`
 
@@ -233,7 +239,7 @@ Property value is `TextCapitalization` enum with the following values:
 
 ### `color`
 
-Text color.
+Text [color](/docs/guides/python/colors).
 
 ### `content_padding`
 
@@ -253,7 +259,7 @@ If null or an empty string and counter isn't specified, then nothing will appear
 
 ### `cursor_color`
 
-The color of TextField cursor.
+The [color](/docs/guides/python/colors) of TextField cursor.
 
 ### `cursor_height`
 
@@ -271,6 +277,12 @@ Sets cursor width.
 
 Whether the TextField is part of a dense form (ie, uses less vertical space).
 
+### `enable_suggestions`
+
+Whether to show input suggestions as the user types.
+
+This flag only affects Android. On iOS, suggestions are tied directly to `autocorrect`, so that suggestions are only shown when `autocorrect` is `True`. On Android autocorrection and suggestion are controlled separately. Default is `True`.
+
 ### `error_style`
 
 The style to use for `error_text`.
@@ -287,11 +299,11 @@ If `True` the decoration's container is filled with theme fillColor.
 
 ### `focused_bgcolor`
 
-Background color of TextField in focused state.
+Background [color](/docs/guides/python/colors) of TextField in focused state.
 
 ### `focused_border_color`
 
-Border color in focused state.
+Border [color](/docs/guides/python/colors) in focused state.
 
 ### `focused_border_width`
 
@@ -299,7 +311,7 @@ Border width in focused state.
 
 ### `focused_color`
 
-Text color when TextField is focused.
+Text [color](/docs/guides/python/colors) when TextField is focused.
 
 ### `helper_style`
 
@@ -409,13 +421,25 @@ When this is set to `True`, the text cannot be modified by any shortcut or keybo
 
 Defaults to `False`.
 
-### `selected_color`
+### `selection_color`
 
-The color of TextField selection.
+The [color](/docs/guides/python/colors) of TextField selection.
 
 ### `shift_enter`
 
 Changes the behavior of `Enter` button in `multiline` TextField to be chat-like, i.e. new line can be added with `Shift`+`Enter` and pressing just `Enter` fires `on_submit` event.
+
+### `smart_dashes_type`
+
+Whether to allow the platform to automatically format dashes.
+
+This flag only affects iOS versions 11 and above. As an example of what this does, two consecutive hyphen characters will be automatically replaced with one en dash, and three consecutive hyphens will become one em dash. Default is `True`.
+
+### `smart_quotes_type`
+
+Whether to allow the platform to automatically format quotes.
+
+This flag only affects iOS. As an example of what this does, a standard vertical double quote character will be automatically replaced by a left or right double quote depending on its position in a word. Default is `True`.
 
 ### `suffix`
 

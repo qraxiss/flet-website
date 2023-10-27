@@ -23,6 +23,13 @@ export const GalleryCard = ({title, liveUrl, sourcesUrl, description, imageUrl})
 <div className="margin-top--lg">
   <section className="gallery-grid">
     <GalleryCard
+      title="Controls gallery"
+      imageUrl="controls-gallery.png"
+      description="Interactive showcase app for Flet controls with code samples."
+      liveUrl="https://flet-controls-gallery.fly.dev/"
+      sourcesUrl="https://github.com/flet-dev/examples/tree/main/python/apps/controls-gallery"
+      />
+    <GalleryCard
       title="To-Do"
       imageUrl="todo.png"
       description="A classic To-Do app inspired by TodoMVC project."
@@ -56,13 +63,6 @@ export const GalleryCard = ({title, liveUrl, sourcesUrl, description, imageUrl})
       description="Multi-user realtime chat."
       liveUrl="https://flet-chat.fly.dev"
       sourcesUrl="https://github.com/flet-dev/examples/blob/main/python/tutorials/chat/chat.py" 
-      />
-    <GalleryCard
-      title="Trolli"
-      imageUrl="trolli.png"
-      description="A clone of Trello."
-      liveUrl="https://gallery.flet.dev/trolli/"
-      sourcesUrl="https://github.com/flet-dev/examples/tree/main/python/apps/trolli" 
       />
     <GalleryCard
       title="Flet animation"

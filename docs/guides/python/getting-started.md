@@ -77,7 +77,7 @@ A typical Flet program ends with a call to `flet.app()` where the app starts wai
 By default, Flet app starts in a native OS window, which is very handy for developing. However, you can open it in a new browser window by modifying a call to `flet.app` as following:
 
 ```python
-ft.app(target=main, view=ft.WEB_BROWSER)
+ft.app(target=main, view=ft.AppView.WEB_BROWSER)
 ```
 
 :::info
@@ -161,7 +161,7 @@ for i in range(10):
     if i > 4:
         page.controls.pop(0)
     page.update()
-    sleep(0.3)
+    time.sleep(0.3)
 ```
 
 Some controls, like buttons, could have event handlers reacting on a user input, for example `ElevatedButton.on_click`:

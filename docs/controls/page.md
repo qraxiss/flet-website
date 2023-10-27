@@ -15,7 +15,7 @@ import TabItem from '@theme/TabItem';
 
 ### `auto_scroll`
 
-`True` if scrollbar should automatically move its position to the end when children update.
+`True` if scrollbar should automatically move its position to the end when children updated. Must be `False` for `scroll_to()` method to work.
 
 ### `appbar`
 
@@ -30,6 +30,18 @@ A [`Banner`](/docs/controls/banner) control to display at the top of the Page.
 Background color of the Page.
 
 A color value could be a hex value in `#ARGB` format (e.g. `#FFCC0000`), `#RGB` format (e.g. `#CC0000`) or a named color from `flet.colors` module.
+
+### `bottom_sheet`
+
+[`BottomSheet`](bottomsheet) control to display.
+
+### `client_ip`
+
+🌎 Web only. IP address of the connected user.
+
+### `client_user_agent`
+
+🌎 Web only. Browser details of the connected user.
 
 ### `controls`
 
@@ -76,6 +88,14 @@ page.update()
 ### `dark_theme`
 
 Set this property to an instance of `theme.Theme` to customize dark theme.
+
+### `debug`
+
+`True` if Flutter client of Flet app is running in debug mode.
+
+### `design`
+
+Reserved for future use.
 
 ### `dialog`
 
@@ -159,6 +179,18 @@ Property value is `CrossAxisAlignment` enum with the following values:
 * `STRETCH`
 * `BASELINE`
 
+### `name`
+
+Page name as specified in `ft.app()` call. Page name is set when Flet app is running as web app. This is a portion of the URL after host name.
+
+### `navigation_bar`
+
+[`NavigationBar`](navigationbar) control to display at the bottom of the page.
+
+### `on_scroll_interval`
+
+Throttling in milliseconds for `on_scroll` event. Default is `10`.
+
 ### `overlay`
 
 A list of `Control`s displayed as a stack on top of main page contents.
@@ -189,6 +221,10 @@ Operating system the application is running on:
 * `macos`
 * `linux`
 * `windows`
+
+### `platform_brightness`
+
+The current brightness mode of the host platform: `ft.ThemeMode.LIGHT` or `ft.ThemeMode.DARK`.
 
 ### `pubsub`
 
@@ -293,6 +329,10 @@ def main(page: ft.Page):
 
 `True` if the application is running as Progressive Web App (PWA). Read-only.
 
+### `query`
+
+A part of app URL after `?`. The value is an instance of `QueryString` with helper methods for fetching query parameters.
+
 ### `route`
 
 Get or sets page's navigation route. See [Navigation and routing](/docs/guides/python/navigation-and-routing) section for 
@@ -315,6 +355,10 @@ Supported values:
 * `ADAPTIVE` - scrolling is enabled and scroll bar is always shown when running app as web or desktop.
 * `ALWAYS` - scrolling is enabled and scroll bar is always shown.
 * `HIDDEN` - scrolling is enabled, but scroll bar is always hidden.
+
+### `session`
+
+A simple KV storage for session data.
 
 ### `session_id`
 
@@ -376,6 +420,11 @@ page.update()
 `Theme` class has the following properties:
 
 * `color_scheme_seed` - a seed color to algorithmically derive the rest of theme colors from.
+* `color_scheme` - an instance of [`ft.ColorScheme`](#colorscheme-class) class that allows to customize Material colors scheme derived from `color_scheme_seed`.
+* `text_theme` - an instance of [`ft.TextTheme`](#texttheme-class) class to customize text styles that contrasts with the card and canvas colors.
+* `primary_text_theme` - an instance of [`ft.TextTheme`](#texttheme-class) class describing a text theme that contrasts with the primary color.
+* `scrollbar_theme` - an instance of [`ft.ScrollbarTheme`](#scrollbartheme-class) class customizing the appearance of scrollbars across the app.
+* `tabs_theme` - an instance of [`ft.TabsTheme`](#tabstheme-class) class customizing the appearance of `Tabs` control across the app.
 * `font_family` - the base font for all UI elements.
 * `use_material3` - `True` (default) to use Material 3 design; otherwise Material 2.
 * `visual_density` - `ThemeVisualDensity` enum: `STANDARD` (default), `COMPACT`, `COMFORTABLE`, `ADAPTIVE_PLATFORM_DENSITY`.
@@ -384,6 +433,99 @@ page.update()
 :::note
 Read this [note about system fonts](/docs/controls/text#using-system-fonts) if you like to use them in `font_family` of your theme.
 :::
+
+#### `ColorScheme` class
+
+A set of 30 colors based on the [Material spec](https://m3.material.io/styles/color/the-color-system/color-roles) that can be used to configure the color properties of most components. Read more about `ColorScheme` in [Flutter docs](https://api.flutter.dev/flutter/material/ColorScheme-class.html).
+
+`ColorScheme` class has the following properties:
+
+* `primary` - The color displayed most frequently across your app’s screens and components.
+* `on_primary` - A color that's clearly legible when drawn on `primary`.
+* `primary_container` - A color used for elements needing less emphasis than `primary`.
+* `on_primary_container` - A color that's clearly legible when drawn on `primary_container`.
+* `secondary` - An accent color used for less prominent components in the UI, such as filter chips, while expanding the opportunity for color expression.
+* `on_secondary` - A color that's clearly legible when drawn on `secondary`.
+* `secondary_container` - A color used for elements needing less emphasis than `secondary`.
+* `on_secondary_container` - A color that's clearly legible when drawn on `secondary_container`.
+* `tertiary` - A color used as a contrasting accent that can balance `primary` and `secondary` colors or bring heightened attention to an element, such as an input field.
+* `on_tertiary` - A color that's clearly legible when drawn on `tertiary`.
+* `tertiary_container` - A color used for elements needing less emphasis than `tertiary`.
+* `on_tertiary_container` - A color that's clearly legible when drawn on `tertiary_container`.
+* `error` - The color to use for input validation errors, e.g. for `TextField.error_text`.
+* `on_error` - A color that's clearly legible when drawn on `error`.
+* `error_container` - A color used for error elements needing less emphasis than `error`.
+* `on_error_container` - A color that's clearly legible when drawn on `error_container`.
+* `background` - A color that typically appears behind scrollable content.
+* `on_background` - A color that's clearly legible when drawn on `background`.
+* `surface` - The background color for widgets like `Card`.
+* `on_surface` - A color that's clearly legible when drawn on `surface`.
+* `surface_variant` - A color variant of `surface` that can be used for differentiation against a component using `surface`.
+* `on_surface_variant` - A color that's clearly legible when drawn on `surface_variant`.
+* `outline` - A utility color that creates boundaries and emphasis to improve usability.
+* `outline_variant` - A utility color that creates boundaries for decorative elements when a 3:1 contrast isn’t required, such as for dividers or decorative elements.
+* `shadow` - A color use to paint the drop shadows of elevated components.
+* `scrim` - A color use to paint the scrim around of modal components.
+* `inverse_surface` - A surface color used for displaying the reverse of what’s seen in the surrounding UI, for example in a `SnackBar` to bring attention to an alert.
+* `on_inverse_surface` - A color that's clearly legible when drawn on `inverse_surface`.
+* `inverse_primary` - An accent color used for displaying a highlight color on `inverse_surface` backgrounds, like button text in a `SnackBar`.
+* `surface_tint` - A color used as an overlay on a surface color to indicate a component's elevation.
+
+#### `TextTheme` class
+
+Customizes text styles.
+
+`TextTheme` class has the following properties of `ft.TextStyle` type:
+
+* `body_large` - Largest of the body styles. Body styles are used for longer passages of text.
+* `body_medium` - Middle size of the body styles. Body styles are used for longer passages of text. The default text style for Material.
+* `body_small` - Smallest of the body styles.
+* `display_large` - Largest of the display styles. As the largest text on the screen, display styles are reserved for short, important text or numerals. They work best on large screens.
+* `display_medium` - Middle size of the display styles.
+* `display_small` - Smallest of the display styles.
+* `headline_large` - Largest of the headline styles. Headline styles are smaller than display styles. They're best-suited for short, high-emphasis text on smaller screens.
+* `headline_medium` - Middle size of the headline styles.
+* `headline_small` - Smallest of the headline styles.
+* `label_large` - Largest of the label styles. Label styles are smaller, utilitarian styles, used for areas of the UI such as text inside of components or very small supporting text in the content body, like captions. Used for text on `ElevatedButton`, `TextButton` and `OutlinedButton`.
+* `label_medium` - Middle size of the label styles.
+* `label_small` - Smallest of the label styles.
+* `title_large` - Largest of the title styles. Titles are smaller than headline styles and should be used for shorter, medium-emphasis text.
+* `title_medium` - Middle size of the title styles.
+* `title_small` - Smallest of the title styles.
+
+#### `ScrollbarTheme` class
+
+Customizes the colors, thickness, and shape of scrollbars across the app.
+
+`ScrollbarTheme` class has the following properties:
+
+* `thumb_visibility` - Indicates that the scrollbar thumb should be visible, even when a scroll is not underway. When `False`, the scrollbar will be shown during scrolling and will fade out otherwise. When `True`, the scrollbar will always be visible and never fade out. Property value could be either a single boolean value or a dictionary with `ft.MaterialState` as keys and boolean as values.
+* `thickness` - the thickness of the scrollbar in the cross axis of the scrollable. Property value could be either a single float value or a dictionary with `ft.MaterialState` as keys and float as values.
+* `track_visibility` - Indicates that the scrollbar track should be visible. When `True`, the scrollbar track will always be visible so long as the thumb is visible. If the scrollbar thumb is not visible, the track will not be visible either. Defaults to `False` when `None`. If this property is `None`, then `ScrollbarTheme.track_visibility` of `Theme.scrollbar_theme` is used. If that is also `None`, the default value is `False`. Property value could be either a single boolean value or a dictionary with `ft.MaterialState` as keys and boolean as values.
+* `radius` - The Radius of the scrollbar thumb's rounded rectangle corners.
+* `thumb_color` - Overrides the default Color of the Scrollbar thumb. The value is either a single color string or `ft.MaterialState` dictionary.
+* `track_color` - Overrides the default Color of the Scrollbar track. The value is either a single color string or `ft.MaterialState` dictionary.
+* `track_border_color` - Overrides the default Color of the Scrollbar track border. The value is either a single color string or `ft.MaterialState` dictionary.
+* `cross_axis_margin` - Distance from the scrollbar thumb to the nearest cross axis edge in logical pixels. The scrollbar track consumes this space. Must not be null and defaults to 0.
+* `main_axis_margin` - Distance from the scrollbar thumb's start and end to the edge of the viewport in logical pixels. It affects the amount of available paint area. The scrollbar track consumes this space. Mustn't be null and defaults to 0.
+* `min_thumb_length` - The preferred smallest size the scrollbar thumb can shrink to when the total scrollable extent is large, the current visible viewport is small, and the viewport is not overscrolled.
+* `interactive` - Whether the Scrollbar should be interactive and respond to dragging on the thumb, or tapping in the track area. When `False`, the scrollbar will not respond to gesture or hover events, and will allow to click through it. Defaults to `True` when `None`, unless on Android, which will default to `False` when `None`.
+
+#### `TabsTheme` class
+
+Customizes the appearance of `Tabs` control across the app.
+
+`TabsTheme` class has the following properties:
+
+* `divider_color` - The color of the divider.
+* `indicator_border_radius` - The radius of the indicator's corners.
+* `indicator_border_side` - The color and weight of the horizontal line drawn below the selected tab.
+* `indicator_padding` - Locates the selected tab's underline relative to the tab's boundary. The `indicator_tab_size` property can be used to define the tab indicator's bounds in terms of its (centered) tab widget with `False`, or the entire tab with `True`.
+* `indicator_color` - The color of the line that appears below the selected tab.
+* `indicator_tab_size` - `True` for indicator to take entire tab.
+* `label_color` - The color of selected tab labels.
+* `unselected_label_color` - The color of unselected tab labels.
+* `overlay_color` - Defines the ink response focus, hover, and splash colors. If specified, it is resolved against one of `MaterialState.FOCUSED`, `MaterialState.HOVERED`, and `MaterialState.PRESSED`.
 
 #### Navigation transitions
 
@@ -395,17 +537,17 @@ Read this [note about system fonts](/docs/controls/text#using-system-fonts) if y
 * `linux` (default value is `ZOOM`)
 * `windows` (default value is `ZOOM`)
 
-Supported transitions is `PageTransitionTheme` enum: `FADE_UPWARDS`, `OPEN_UPWARDS`, `ZOOM`, `CUPERTINO`.
+Supported transitions is `ft.PageTransitionTheme` enum: `NONE` (zero delay transition without any animation), `FADE_UPWARDS`, `OPEN_UPWARDS`, `ZOOM`, `CUPERTINO`.
 
 An simple example:
 
 ```python
-theme = Theme()
-theme.page_transitions.android = "openUpwards"
-theme.page_transitions.ios = "cupertino"
-theme.page_transitions.macos = "fadeUpwards"
-theme.page_transitions.linux = "zoom"
-theme.page_transitions.windows = "zoom"
+theme = ft.Theme()
+theme.page_transitions.android = ft.PageTransitionTheme.OPEN_UPWARDS
+theme.page_transitions.ios = ft.PageTransitionTheme.CUPERTINO
+theme.page_transitions.macos = ft.PageTransitionTheme.FADE_UPWARDS
+theme.page_transitions.linux = ft.PageTransitionTheme.ZOOM
+theme.page_transitions.windows = ft.PageTransitionTheme.NONE
 page.theme = theme
 page.update()
 ```
@@ -433,6 +575,10 @@ page.update()
 </TabItem>
 </Tabs>
 
+### `url`
+
+The complete web app's URL.
+
 ### `vertical_alignment`
 
 How the child Controls should be placed vertically.
@@ -454,7 +600,7 @@ A list of [`View`](/docs/controls/view) controls to build navigation history.
 
 The last view in the list is the one displayed on a page.
 
-The first view is a "root" view which cannot be poped.
+The first view is a "root" view which cannot be popped.
 
 ### `web`
 
@@ -600,10 +746,10 @@ def main(page: ft.Page):
     page.window_visible = True
     page.update()  
 
-ft.app(target=main, view=ft.FLET_APP_HIDDEN)
+ft.app(target=main, view=ft.AppView.FLET_APP_HIDDEN)
 ```
 
-Note `view=flet.FLET_APP_HIDDEN` which hides app window on start.
+Note `view=ft.AppView.FLET_APP_HIDDEN` which hides app window on start.
 
 ### `window_width`
 
@@ -620,30 +766,36 @@ Returns `True` if it is possible to verify that there is a handler available. A 
 * On recent versions of Android and iOS, this will always return `False` unless the application has been configuration to allow querying the system for launch support.
 * On web, this will always return `False` except for a few specific schemes that are always assumed to be supported (such as http(s)), as web pages are never allowed to query installed applications.
 
+### `close_banner()`
+
+Closes active banner.
+
+### `close_bottom_sheet()`
+
+Closes active bottom sheet.
+
+### `close_dialog()`
+
+Closes active dialog.
+
 ### `close_in_app_web_view()`
 
 📱 Mobile only. Closes in-app web view opened with `launch_url()`.
+
+### `error(message)`
+
+
+### `fetch_page_details()`
+
 
 ### `get_clipboard()`
 
 Get the last text value saved to a clipboard on a client side.
 
-### `go(route)`
+### `get_control(id)`
 
-A helper method that updates [`page.route`](#route), calls [`page.on_route_change`](#on_route_change) event handler to update views and finally calls `page.update()`.
 
-### `launch_url(url)`
-
-Opens `url` in a new browser window.
-
-Optional method arguments:
-
-* `web_window_name` - window tab/name to open URL in: `_self` - the same tab, `_blank` - a new tab or `<your name>` - a named tab.
-* `web_popup_window` - set to `True` to display a URL in a browser popup window. Default is `False`.
-* `window_width` - optional, popup window width.
-* `window_height` - optional, popup window height.
-
-### `page.get_upload_url(file_name, expires)`
+### `get_upload_url(file_name, expires)`
 
 Generates presigned upload URL for built-in upload storage:
 
@@ -662,6 +814,47 @@ To enable built-in upload storage provide `upload_dir` argument to `flet.app()` 
 ft.app(target=main, upload_dir="uploads")
 ```
 
+### `go(route)`
+
+A helper method that updates [`page.route`](#route), calls [`page.on_route_change`](#on_route_change) event handler to update views and finally calls `page.update()`.
+
+### `insert(at, *controls)`
+
+Inserts controls at specific index of `page.controls` list.
+
+### `launch_url(url)`
+
+Opens `url` in a new browser window.
+
+Optional method arguments:
+
+* `web_window_name` - window tab/name to open URL in: `_self` - the same browser tab, `_blank` - a new browser tab (or in external application on mobile device) or `<your name>` - a named tab.
+* `web_popup_window` - set to `True` to display a URL in a browser popup window. Default is `False`.
+* `window_width` - optional, popup window width.
+* `window_height` - optional, popup window height.
+
+### `login(provider, fetch_user, fetch_groups, scope, saved_token, on_open_authorization_url, complete_page_html, redirect_to_page, authorization)`
+
+Starts OAuth flow. See [Authentication](/docs/guides/python/authentication) guide for more information and examples.
+
+### `logout()`
+
+Clears current authentication context. See [Authentication](/docs/guides/python/authentication#signing-out) guide for more information and examples.
+
+### `remove(*controls)`
+
+Removes specific controls from `page.controls` list.
+
+### `remove_at(index)`
+
+Remove controls from `page.controls` list at specific index.
+
+### `scroll_to(offset, delta, key, duration, curve)`
+
+Moves scroll position to either absolute `offset`, relative `delta` or jump to the control with specified `key`.
+
+See [`Column.scroll_to()`](column#scroll_tooffset-delta-key-duration-curve) for method details and examples.
+
 ### `set_clipboard(data)`
 
 Set clipboard data on a client side (user's web browser or a desktop), for example:
@@ -676,7 +869,19 @@ page.set_clipboard("This value comes from Flet app")
 </TabItem>
 </Tabs>
 
-### `show_snack_bar(snack_bar)`
+### `show_banner(banner: Banner)`
+
+Displays the banner at the top of the page.
+
+### `show_bottom_sheet(bottom_sheet: BottomSheet)`
+
+Displays bottom sheet at the bottom of the page.
+
+### `show_dialog(dialog: AlertDialog)`
+
+Displays dialog.
+
+### `show_snack_bar(snack_bar: SnackBar)`
 
 Displays SnackBar at the bottom of the page.
 
@@ -770,6 +975,18 @@ class ft.KeyboardEvent:
 
 Check a [simple usage example](https://github.com/flet-dev/examples/blob/main/python/controls/page/keyboard-events.py).
 
+### `on_login`
+
+Fires upon successful or failed OAuth authorization flow. See [Authentication](/docs/guides/python/authentication#checking-authentication-results) guide for more information and examples.
+
+### `on_logout`
+
+Fires after `page.logout()` call.
+
+### `on_platform_brigthness_change`
+
+Fires when brightness of app host platform has changed.
+
 ### `on_resize`
 
 Fires when a browser or native OS window containing Flet app is resized by a user, for example:
@@ -797,6 +1014,12 @@ Event object `e` is an instance of `RouteChangeEvent` class:
 class RouteChangeEvent(ft.ControlEvent):
     route: str     # a new page root
 ```
+
+### `on_scroll`
+
+Fires when page's scroll position is changed by a user.
+
+See [`Column.on_scroll`](docs/controls/column#on_scroll) for event details and examples.
 
 ### `on_view_pop`
 

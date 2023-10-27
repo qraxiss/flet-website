@@ -11,6 +11,8 @@ import TabItem from '@theme/TabItem';
 
 ## Examples
 
+[Live example](https://flet-controls-gallery.fly.dev/layout/listtile)
+
 <img src="/img/docs/controls/listtile/listtiles.png" className="screenshot-50"/>
 
 <Tabs groupId="language">
@@ -132,9 +134,24 @@ If `is_three_line` is `False`, this should not wrap. If `is_three_line` is `True
 
 A `Control` to display as primary content of the list tile. Typically a [Text](text) control. This should not wrap. To enforce the single line limit, use [Text.max_lines](text#max_lines).
 
+### `toggle_inputs`
+
+Whether clicking on a list tile should toggle the state of `Radio`, `Checkbox` or `Switch` inside the tile. Default is `False`.
+
 ### `trailing`
 
 A `Control` to display after the title. Typically an [Icon](icon) control.
+
+### `url`
+
+The URL to open when the list tile is clicked. If registered, `on_click` event is fired after that.
+
+### `url_target`
+
+Where to open URL in the web mode:
+
+* `_blank` (default) - new tab/window.
+* `_self` - the current tab/window.
 
 ## Events
 

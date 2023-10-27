@@ -12,6 +12,8 @@ Outlined buttons pair well with filled buttons to indicate an alternative, secon
 
 ## Examples
 
+[Live example](https://flet-controls-gallery.fly.dev/buttons/outlinedbutton)
+
 ### Basic outlined buttons
 
 <Tabs groupId="language">
@@ -159,7 +161,7 @@ Icon shown in the button.
 
 ### `icon_color`
 
-Icon color.
+Icon [color](/docs/guides/python/colors).
 
 ### `style`
 
@@ -173,11 +175,36 @@ The text displayed on a button.
 
 The text displayed when hovering the mouse over the button.
 
+### `url`
+
+The URL to open when the button is clicked. If registered, `on_click` event is fired after that.
+
+### `url_target`
+
+Where to open URL in the web mode:
+
+* `_blank` (default) - new tab/window.
+* `_self` - the current tab/window.
+
+## Methods
+
+### `focus()`
+
+Moves focus to a button.
+
 ## Events
+
+### `on_blur`
+
+Fires when the control has lost focus.
 
 ### `on_click`
 
 Fires when a user clicks the button.
+
+### `on_focus`
+
+Fires when the control has received focus.
 
 ### `on_hover`
 

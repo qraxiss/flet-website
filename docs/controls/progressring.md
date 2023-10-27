@@ -18,6 +18,8 @@ import TabItem from '@theme/TabItem';
 
 ## Examples
 
+[Live example](https://flet-controls-gallery.fly.dev/displays/progressring)
+
 <Tabs groupId="language">
   <TabItem value="python" label="Python" default>
 
@@ -54,11 +56,11 @@ ft.app(target=main)
 
 ### `bgcolor`
 
-Color of the circular track being filled by the circular indicator.
+[Color](/docs/guides/python/colors) of the circular track being filled by the circular indicator.
 
 ### `color`
 
-The progress indicator's color.
+The progress indicator's [color](/docs/guides/python/colors).
 
 ### `stroke_width`
 

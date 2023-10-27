@@ -13,7 +13,9 @@ import TabItem from '@theme/TabItem';
 
 ## Examples
 
-### Icons with different colors and sizes
+[Live example](https://flet-controls-gallery.fly.dev/displays/icon)
+
+### Icons of different colors and sizes
 
 <Tabs groupId="language">
   <TabItem value="python" label="Python" default>
@@ -44,7 +46,7 @@ ft.app(target=main)
 
 ### `color`
 
-Icon color.
+Icon [color](/docs/guides/python/colors).
 
 ### `name`
 

@@ -11,6 +11,8 @@ import TabItem from '@theme/TabItem';
 
 ## Examples
 
+[Live example](https://flet-controls-gallery.fly.dev/displays/image)
+
 <Tabs groupId="language">
   <TabItem value="python" label="Python" default>
 
@@ -61,7 +63,7 @@ Clip image to have rounded corners. See [`Container.border_radius`](container#bo
 
 ### `color`
 
-If set, this color is blended with each image pixel using `color_blend_mode`.
+If set, this [color](/docs/guides/python/colors) is blended with each image pixel using `color_blend_mode`.
 
 ### `color_blend_mode`
 
@@ -70,6 +72,10 @@ Used to combine `color` with the image.
 The default is `BlendMode.COLOR`. In terms of the blend mode, color is the source and this image is the destination.
 
 See [`ShaderMask.blend_mode`](shadermask#blend_mode) for possible blend mode values.
+
+### `error_content`
+
+Fallback `Control` to display if the image cannot be loaded from the source.
 
 ### `fit`
 

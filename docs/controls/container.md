@@ -11,6 +11,8 @@ import TabItem from '@theme/TabItem';
 
 ## Examples
 
+[Live example](https://flet-controls-gallery.fly.dev/layout/container)
+
 ### Containers with different background color
 
 <img src="/img/docs/controls/container/containers-background-color.png" className="screenshot-50" />
@@ -193,6 +195,53 @@ A color value could be a hex value in `#ARGB` format (e.g. `#FFCC0000`), `#RGB` 
 
 The blend mode applied to the `color` or `gradient` background of the container. See [`ShaderMask.blend_mode`](shadermask#blend_mode) for more details.
 
+### `blur`
+
+Applies Gaussian blur effect under the container.
+
+The value of this property could be one of the following:
+
+* **a number** - specifies the same value for horizontal and vertical sigmas, e.g. `10`.
+* **a tuple** - specifies separate values for horizontal and vertical sigmas, e.g. `(10, 1)`.
+* **an instance of `ft.Blur`** - allow specifying separate values for horizontal and vertical sigmas as well as `tile_mode` for the filter. `tile_mode` is the value of `ft.BlurTileMode` which defaults to `ft.BlurTileMode.CLAMP`.
+
+For example:
+
+```python
+ft.Stack(
+    [
+        ft.Container(
+            content=ft.Text("Hello"),
+            image_src="https://picsum.photos/100/100",
+            width=100,
+            height=100,
+        ),
+        ft.Container(
+            width=50,
+            height=50,
+            blur=10,
+            bgcolor="#44CCCC00",
+        ),
+        ft.Container(
+            width=50,
+            height=50,
+            left=10,
+            top=60,
+            blur=(0, 10),
+        ),
+        ft.Container(
+            top=10,
+            left=60,
+            blur=ft.Blur(10, 0, ft.BlurTileMode.MIRROR),
+            width=50,
+            height=50,
+            bgcolor="#44CCCCCC",
+            border=ft.border.all(2, ft.colors.BLACK),
+        ),
+    ]
+)
+```
+
 ### `border`
 
 A border to draw above the background color.
@@ -212,12 +261,12 @@ container_1.border = ft.border.only(bottom=ft.border.BorderSide(1, "black"))
 
 ### `border_radius`
 
-If specified, the corners of the container are rounded by this radius. Border radius is an instance of `border_radius.BorderRadius` class with 4 properties: `topLeft`, `topRight`, `bottomLeft`, `bottomRight`. The object could be created with a constructor where all corner values set separately or with helper methods:
+If specified, the corners of the container are rounded by this radius. Border radius is an instance of `border_radius.BorderRadius` class with 4 properties: `top_left`, `top_right`, `bottom_left`, `bottom_right`. The object could be created with a constructor where all corner values set separately or with helper methods:
 
 * `border_radius.all(value)`
 * `border_radius.horizontal(left: float = 0, right: float = 0)`
 * `border_radius.vertical(top: float = 0, bottom: float = 0)`
-* `border_radius.only(topLeft, topRight, bottomLeft, bottomRight)`
+* `border_radius.only(top_left, top_right, bottom_left, bottom_right)`
 
 For example:
 
@@ -231,10 +280,12 @@ The content will be clipped (or not) according to this option.
 
 Property value is `ClipBehavior` enum with supported values:
 
-* `NONE` (default)
+* `NONE`
 * `ANTI_ALIAS`
 * `ANTI_ALIAS_WITH_SAVE_LAYER`
 * `HARD_EDGE`
+
+Default is `ANTI_ALIAS` if `border_radius` is not `None`; otherwise `HARD_EDGE`.
 
 ### `content`
 
@@ -402,12 +453,103 @@ container_4.padding=padding.only(left=10)
 
 <img src="/img/docs/controls/container/container-padding-diagram.png" className="screenshot-50" />
 
+### `shadow`
+
+A list of shadows cast by the container.
+
+The value of this property is a single instance or a list of `ft.BoxShadow` class instances with the following properties:
+
+* `spread_radius` - The amount the box should be inflated prior to applying the blur. Default is `0.0.`.
+* `blur_radius` - The standard deviation of the Gaussian to convolve with the shadow's shape. Default is `0.0.`.
+* `color` - Color that the shadow will be drawn with.
+* `offset` - An instance of `ft.Offset` class - the displacement of the shadow from the casting element. Positive x/y offsets will shift the shadow to the right and down, while negative offsets shift the shadow to the left and up. The offsets are relative to the position of the element that is casting it. Default is `ft.Offset(0,0)`.
+* `blur_style` - The `ft.BlurStyle` to use for this shadow. Defaults to `ft.BlurStyle.NORMAL`.
+
+Example:
+
+```python
+ft.Container(
+    border_radius=10,
+    width=100,
+    height=100,
+    shadow=ft.BoxShadow(
+        spread_radius=1,
+        blur_radius=15,
+        color=ft.colors.BLUE_GREY_300,
+        offset=ft.Offset(0, 0),
+        blur_style=ft.ShadowBlurStyle.OUTER,
+    )
+)
+```
+
 ### `shape`
 
 Sets the shape of the container. The value is `BoxShape` enum:
 
 * `RECTANGLE` (default)
 * `CIRCLE`
+
+### `theme_mode`
+
+Setting `theme_mode` (`ft.ThemeMode`) "resets" parent theme and creates a new, unique scheme for all controls inside the container. Otherwise the styles defined in container's `theme` property override corresponding styles from the parent, inherited theme.
+
+### `theme`
+
+Allows setting a nested `ft.Theme` for all controls inside the container and down the tree, for example:
+
+```python
+import flet as ft
+
+def main(page: ft.Page):
+    # Yellow page theme with SYSTEM (default) mode
+    page.theme = ft.Theme(
+        color_scheme_seed=ft.colors.YELLOW,
+    )
+
+    page.add(
+        # Page theme
+        ft.Container(
+            content=ft.ElevatedButton("Page theme button"),
+            bgcolor=ft.colors.SURFACE_VARIANT,
+            padding=20,
+            width=300,
+        ),
+
+        # Inherited theme with primary color overridden
+        ft.Container(
+            theme=ft.Theme(color_scheme=ft.ColorScheme(primary=ft.colors.PINK)),
+            content=ft.ElevatedButton("Inherited theme button"),
+            bgcolor=ft.colors.SURFACE_VARIANT,
+            padding=20,
+            width=300,
+        ),
+        
+        # Unique always DARK theme
+        ft.Container(
+            theme=ft.Theme(color_scheme_seed=ft.colors.INDIGO),
+            theme_mode=ft.ThemeMode.DARK,
+            content=ft.ElevatedButton("Unique theme button"),
+            bgcolor=ft.colors.SURFACE_VARIANT,
+            padding=20,
+            width=300,
+        ),
+    )
+
+ft.app(main)
+```
+
+<img src="/img/blog/theme-scrolling/nested-themes.png"  className="screenshot-60" />
+
+### `url`
+
+The URL to open when the container is clicked. If registered, `on_click` event is fired after that.
+
+### `url_target`
+
+Where to open URL in the web mode:
+
+* `_blank` (default) - new tab/window.
+* `_self` - the current tab/window.
 
 ## Events
 
